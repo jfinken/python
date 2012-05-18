@@ -14,7 +14,8 @@ Usage:
 
 main_parser.py /path/to/logs/
     
-"""
+""" 
+
 logsList = []
 
 class Parser:
@@ -92,7 +93,8 @@ def main(argv=None):
 
     # make sure we have required arguments
     if len(argv) < 2:
-        print usage
+        #print usage
+        print foo_bar
         sys.exit(1)
 
     listFiles()
