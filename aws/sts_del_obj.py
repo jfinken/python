@@ -10,7 +10,7 @@ means the instance must have STS * privileges as well.
 
 class StsService:
     def __init__(self,
-                 role_arn="NEED_ARN",
+                 role_arn="",
                  session_name=None):
         if session_name is None:
             session_name = str(uuid.uuid4()).replace("-", "")
@@ -50,7 +50,14 @@ def main():
     L = list(I)
 
     for _ in L:
-        print _
+        key = bucket.lookup(_)
+        print key.name, key.size
+        """
+        if 'fisheye.image' in str(key.name):
+            print '\tWould like to delete: {0}'.format(str(key.name))
+            k = bucket.delete_key(key.name)
+            print '\t deleted key: ', k
+        """
 
 if __name__ == "__main__":
     main()
